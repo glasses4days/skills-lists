@@ -15,8 +15,8 @@ def print_list(my_list):
         9
 
     """
-
-    print "the wrong thing"
+    for num in my_list:
+        print num
 
 
 def all_odd(number_list):
@@ -29,8 +29,13 @@ def all_odd(number_list):
         []
 
     """
+    all_odd = []
 
-    return ['the wrong thing']
+    for num in number_list:
+        if num % 2 != 0:
+            all_odd.append(num)
+
+    return all_odd
 
 
 def all_even(number_list):
@@ -44,7 +49,13 @@ def all_even(number_list):
 
     """
 
-    return ['the wrong thing']
+    all_even = []
+
+    for num in number_list:
+        if num % 2 == 0:
+            all_even.append(num)
+
+    return all_even
 
 
 def every_other_item(my_list):
@@ -58,8 +69,9 @@ def every_other_item(my_list):
        ['you', 'are', 'good', 'at', 'coding']
 
     """
+    every_other_item_list = my_list[0::2]
 
-    return ['the wrong thing']
+    return every_other_item_list
 
 def print_indexes(my_list):
     """Print the index of each item in the input_list, followed by the item itself.
@@ -80,8 +92,9 @@ def print_indexes(my_list):
         2 Volvo
 
     """
+    for item in my_list:
+        print my_list.index(item), item
 
-    print "Nothing at all"
 
 
 def long_words(word_list):
@@ -94,8 +107,13 @@ def long_words(word_list):
         []
 
     """
+    more_than_four = []
 
-    return ['the wrong thing']
+    for item in word_list:
+        if len(item) > 4:
+            more_than_four.append(item)
+
+    return more_than_four
 
 
 def n_long_words(word_list, n):
@@ -108,7 +126,13 @@ def n_long_words(word_list, n):
     ['apples', 'bananas']
     """
 
-    return ['the wrong thing']
+    more_than_n = []
+
+    for item in word_list:
+        if len(item) > n:
+            more_than_n.append(item)
+
+    return more_than_n
 
 
 def smallest_int(number_list):
