@@ -153,9 +153,13 @@ def smallest_int(number_list):
         >>> smallest_int([]) is None
         True
 
-    """
+    """  
+    if len(number_list) == 0:
+        return None
+    else:
+        number_list.sort()
+        return number_list[0]
 
-    return 100
 
 
 def largest_int(number_list):
@@ -176,8 +180,11 @@ def largest_int(number_list):
 
     """
 
-    return 0
-
+    if len(number_list) == 0:
+        return None
+    else:
+        number_list.sort()
+        return number_list[-1]
 
 def halvesies(number_list):
     """Return list of numbers from input list, each divided by two.
@@ -191,9 +198,13 @@ def halvesies(number_list):
         [0.5, 2.5]
 
     """
+    halved_list = []
 
-    return []
+    for num in number_list:
+        num = num/2.0
+        halved_list.append(num)
 
+    return halved_list
 
 def word_lengths(word_list):
     """Return the length of words in the input list.
@@ -202,8 +213,12 @@ def word_lengths(word_list):
         [5, 3, 5, 4]
 
     """
+    word_length = []
+    
+    for item in word_list:
+        word_length.append(len(item)) 
 
-    return []
+    return word_length
 
 
 def sum_numbers(number_list):
@@ -221,8 +236,15 @@ def sum_numbers(number_list):
         0
 
     """
+    number = 0
 
-    return None
+    if len(number_list) == 0:
+        return 0
+    else:
+        for num in number_list:
+            number += num
+
+    return number
 
 
 def mult_numbers(number_list):
@@ -243,8 +265,16 @@ def mult_numbers(number_list):
         1
 
     """
+    number = 1
 
-    return None
+    if len(number_list) == 0:
+        return 1
+    else:
+        for num in number_list:
+            number *= num
+
+    return number
+
 
 
 def join_strings(word_list):
