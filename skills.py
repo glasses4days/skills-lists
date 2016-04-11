@@ -418,7 +418,14 @@ def duplicates(my_list):
     for item in my_list:
         if my_list.count(item) > 1:
             duplicates.append(item)
+    
+    set_duplicates = set(duplicates)
+    duplicates = list(set_duplicates)
+
     return duplicates
+
+    #There has to be a better way to do this!!
+
 
 
 def find_letter_indices(list_of_words, letter):
@@ -437,8 +444,27 @@ def find_letter_indices(list_of_words, letter):
     [0, 1, 2, None]
 
     """
+    index_list = []
+    
+    for item in list_of_words:
+        for i in range(len(item)):
+            if letter in list_of_words == False:
+                index_list.append(None)
+            elif letter in list_of_words == True:
+                if item[i] == letter:
+                    index_list.append(i)
 
-    return []
+    
+    return index_list
+ 
+ #My thought was to loop through the list loop through the characters of the list 
+ #while doing that. Then checking to see if the current character matches the 
+ #letter passed in the function and if so, append the index number to the 
+ #index_list. I tried several different ways, none of which worked. 
+
+
+
+
 
 def largest_n_items(input_list, n):
     """Given a list of integers along with an integer n, return a 
@@ -452,9 +478,11 @@ def largest_n_items(input_list, n):
     [59, 700, 6006]
 
     """
+    input_list.sort()
 
-    return []
+    largest_items_list = input_list[-n:]
 
+    return largest_items_list
 
 ##############################################################################
 # END OF ASSIGNMENT: You can ignore everything below.
