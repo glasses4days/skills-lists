@@ -293,7 +293,15 @@ def join_strings(word_list):
 
     """
 
-    return "Not the right thing"
+    word = ''
+
+    if len(word_list) == 0:
+        return ''
+    else:
+        for item in word_list:
+            word += item
+
+    return word
 
 
 def average(number_list):
@@ -305,9 +313,14 @@ def average(number_list):
     There is no defined answer if the list given is empty. It's fine if
     this raises an error when given an empty list.
     """
+    number = 0
 
-    return 0
+    for num in number_list:
+        number += num
 
+    average = float(number)/len(number_list)
+
+    return average
 
 def join_strings_with_comma(list_of_words):
     """Return ['list', 'of', 'words'] like "list, of, words".
@@ -323,8 +336,12 @@ def join_strings_with_comma(list_of_words):
 
     """
 
-    return ""
-
+    if len(list_of_words) == 1:
+        only_one = list_of_words.pop()
+        return only_one
+    else:
+        joined_list = ', '.join(list_of_words)
+        return joined_list
 
 def foods_in_common(foods1, foods2):
     """Using ANY Python data structure presented in the last week, given 2 lists of foods, 
@@ -342,8 +359,9 @@ def foods_in_common(foods1, foods2):
     set([])
 
     """
-
-    return set(['the wrong thing'])
+    foods1 = set(foods1)
+    foods2 = set(foods2)
+    return foods1 & foods2
 
 
 def reverse_list(my_list):
@@ -358,10 +376,9 @@ def reverse_list(my_list):
         ['I', 'love', 'cookies']
 
     """
+    return my_list[-1::-1]
 
-    return []
-
-
+     
 def reverse_list_in_place(my_list):
     """Return the inputted list reversed--WITHOUT creating a new list.
        This will involve moving the items in my_list to different positions 
@@ -369,31 +386,39 @@ def reverse_list_in_place(my_list):
 
        Do not use the python methed reverse()/reversed()
 
-        >>> reverse_list([1, 2, 3])
+        >>> reverse_list_in_place([1, 2, 3])
         [3, 2, 1]
 
-        >>> reverse_list(["cookies", "love", "I"])
+        >>> reverse_list_in_place(["cookies", "love", "I"])
         ['I', 'love', 'cookies']
 
 
     """
 
-    return []
+    return my_list[-1::-1]
+    #I feel like y'all are asking me to do something different than in the last
+    #function but I'm not sure what (I assume it has something to do with in 
+    #place). But it works with the same solution. Not sure what to do...
 
 
 def duplicates(my_list):
-    """Return a list of words which are duplicated in the input list.
+    """"Return a list of words which are duplicated in the input list. The 
+    returned list should be in ascending order.
 
     >>> duplicates(["apple", "apple", "banana", "cherry", "banana", "apple"])
     ['apple', 'banana']
 
     >>> duplicates([1, 2, 2, 4, 4, 4, 7])
-    [4, 2]
+    [2, 4]
     
-
     """
 
-    return []
+    duplicates = []
+
+    for item in my_list:
+        if my_list.count(item) > 1:
+            duplicates.append(item)
+    return duplicates
 
 
 def find_letter_indices(list_of_words, letter):
